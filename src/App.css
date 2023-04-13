@@ -1,0 +1,86 @@
+.main {
+  max-width: 500px;
+  max-height: 500px;
+  margin: 0 auto;
+  margin-top: 20px;
+  padding: 20px;
+  background-color: floralwhite;
+  border: solid 2px #c69b7b;
+  border-radius: 5px;
+}
+
+.main ul {
+  list-style-type: none;
+}
+
+.footer {
+  text-align: center;
+  font-family: Montserrat, Times;
+}
+
+.main.currentDate {
+  font-size: 20px;
+  font-weight: 400;
+  color: #3a3845;
+}
+.main .enterACity {
+  font-size: 15px;
+  font-weight: 400;
+  color: #c69b7b;
+  border-radius: 5px;
+  border: solid 2px #c69b7b;
+}
+
+.main .submit {
+  font-size: 15px;
+  background-color: #c69b7b;
+  color: floralwhite;
+  border-radius: 5px;
+  border: solid 2px #c69b7b;
+}
+
+.main .currentCity {
+  padding-top: 20px;
+  margin-bottom: 0;
+  font-size: 50px;
+  font-weight: 600;
+  color: #c69b7b;
+  position: relative;
+  top: 50px;
+}
+
+.main .humidityAndWind {
+  padding: 0;
+  font-size: 25px;
+  font-weight: 300;
+  color: #3a3845;
+  position: relative;
+  top: 50px;
+}
+
+.main .weatherIcon {
+  margin-bottom: 0;
+  text-align: center;
+  font-size: 130px;
+  font-weight: 300;
+  color: #3a3845;
+  position: relative;
+  top: 0px;
+  left: -20px;
+}
+
+.main .currentTemperature {
+  position: relative;
+  top: -20px;
+  left: 5px;
+  font-size: 30px;
+  font-weight: 600;
+  color: #3a3845;
+  margin: 0;
+  padding: 0;
+}
+
+.main .weatherDays {
+  font-size: 15px;
+  font-weight: 300;
+}
