@@ -4,8 +4,12 @@
   margin: 0 auto;
   margin-top: 20px;
   padding: 20px;
-  background-color: floralwhite;
-  border: solid 2px #c69b7b;
+  color: white;
+  background-color: #fff2;
+  background-image: url("./rainbow.png");
+  background-position: center;
+  background-size: cover;
+  border: solid 2px white;
   border-radius: 5px;
 }
 
@@ -21,63 +25,60 @@
 .main.currentDate {
   font-size: 20px;
   font-weight: 400;
-  color: #3a3845;
+  color: white;
 }
+
 .main .enterACity {
   font-size: 15px;
   font-weight: 400;
-  color: #c69b7b;
+  color: white;
   border-radius: 5px;
-  border: solid 2px #c69b7b;
+  border: solid 2px white;
 }
 
 .main .submit {
   font-size: 15px;
-  background-color: #c69b7b;
-  color: floralwhite;
+  background-color: rgb(58, 58, 58);
+  color: white;
   border-radius: 5px;
-  border: solid 2px #c69b7b;
+  border: solid 2px rgb(58, 58, 58);
 }
 
 .main .currentCity {
-  padding-top: 20px;
+  padding: 20px;
   margin-bottom: 0;
   font-size: 50px;
   font-weight: 600;
-  color: #c69b7b;
+  color: white;
   position: relative;
   top: 50px;
 }
 
 .main .humidityAndWind {
-  padding: 0;
+  padding-left: 20px;
+  padding-top: 30px;
   font-size: 25px;
   font-weight: 300;
-  color: #3a3845;
+  color: white;
   position: relative;
-  top: 50px;
 }
 
 .main .weatherIcon {
-  margin-bottom: 0;
   text-align: center;
   font-size: 130px;
   font-weight: 300;
-  color: #3a3845;
+  color: white;
   position: relative;
-  top: 0px;
-  left: -20px;
+  top: 20px;
 }
 
 .main .currentTemperature {
   position: relative;
-  top: -20px;
-  left: 5px;
+  top: -30px;
+  text-align: center;
   font-size: 30px;
   font-weight: 600;
-  color: #3a3845;
-  margin: 0;
-  padding: 0;
+  color: white;
 }
 
 .main .weatherDays {

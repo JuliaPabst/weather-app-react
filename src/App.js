@@ -1,4 +1,5 @@
 import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 import Main from "./Main/Main.js";
 import Footer from "./Footer/Footer.js";
