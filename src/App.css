@@ -22,10 +22,19 @@
   font-family: Montserrat, Times;
 }
 
-.main.currentDate {
+.currentDate {
   font-size: 20px;
-  font-weight: 400;
+  font-weight: 200;
   color: white;
+}
+
+.time {
+  font-weight: 400;
+}
+
+.metrics {
+  color: white;
+  text-decoration: none;
 }
 
 .main .enterACity {
