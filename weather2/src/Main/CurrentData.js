@@ -31,7 +31,7 @@ export default function CurrentData(props) {
           `https://openweathermap.org/img/wn/${data.weather[0]["icon"]}@2x.png`
         );
       });
-  }, []);
+  });
 
   useEffect(() => {
     const week = [
@@ -53,12 +53,14 @@ export default function CurrentData(props) {
     let currentWeekday = week[weekdayNumber];
     let hours = fullDate.getHours();
     let minutes = fullDate.getMinutes();
-    minutes < 10 ? (minutes = `0${minutes}`) : (minutes = minutes);
+    if (minutes < 10) {
+      minutes = `0${minutes}`;
+    }
     let currentTime = `${hours}:${minutes}`;
     setTime(currentTime);
     setWeekDay(currentWeekday);
     setDate(currentDate);
-  });
+  }, []);
 
   function search() {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=8c78e9e7e9928cd1a2a6f923072c3dec`;
@@ -146,7 +148,7 @@ export default function CurrentData(props) {
           </div>
           <div className="col-5">
             <div>
-              <img src={icon} className="weatherIcon" />
+              <img src={icon} className="weatherIcon" alt="weatherIcon" />
             </div>
             {celsius ? temperatureInCelsius : temperatureInFahrenheit}
           </div>
