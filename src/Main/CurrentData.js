@@ -2,6 +2,8 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 
+import Prognosis from "./Prognosis";
+
 let temperatureData = null;
 
 export default function CurrentData(props) {
@@ -17,21 +19,19 @@ export default function CurrentData(props) {
   const [celsius, setCelsius] = useState(true);
 
   useEffect(() => {
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=8c78e9e7e9928cd1a2a6f923072c3dec`;
+    const url = `https://api.shecodes.io/weather/v1/current?query=${city}&units=metric&key=o54b38af539a41d076df6ce6a0c0btb0`;
     fetch(url)
       .then((response) => {
         return response.json();
       })
       .then((data) => {
-        temperatureData = Math.round(data.main.temp);
+        temperatureData = Math.round(data.temperature.current);
         setTemperature(temperatureData);
-        setHumidity(data.main.humidity);
+        setHumidity(data.temperature.humidity);
         setWind(data.wind.speed);
-        setIcon(
-          `https://openweathermap.org/img/wn/${data.weather[0]["icon"]}@2x.png`
-        );
+        setIcon(data.condition.icon_url);
       });
-  });
+  }, []);
 
   useEffect(() => {
     const week = [
@@ -63,26 +63,29 @@ export default function CurrentData(props) {
   }, []);
 
   function search() {
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=8c78e9e7e9928cd1a2a6f923072c3dec`;
+    const url = `https://api.shecodes.io/weather/v1/current?query=${city}&units=metric&key=o54b38af539a41d076df6ce6a0c0btb0`;
     fetch(url)
       .then((response) => {
         return response.json();
       })
       .then((data) => {
-        setTemperature(Math.round(data.main.temp));
-        setHumidity(data.main.humidity);
+        setTemperature(Math.round(data.temperature.current));
+        setHumidity(data.temperature.humidity);
         setWind(data.wind.speed);
-        setIcon(
-          `https://openweathermap.org/img/wn/${data.weather[0]["icon"]}@2x.png`
-        );
+        setIcon(data.condition.icon_url);
       });
   }
 
   function submitCity(event) {
     event.preventDefault();
-    search();
     setCity(changingCity);
   }
+
+  useEffect(() => {
+    if (city) {
+      search(city);
+    }
+  }, [city]);
 
   function trackCity(event) {
     setChangingCity(event.target.value);
@@ -96,7 +99,6 @@ export default function CurrentData(props) {
   function convertToFahrenheit(event) {
     event.preventDefault();
     setCelsius(false);
-    console.log(temperature);
   }
 
   const temperatureInCelsius = (
@@ -118,7 +120,7 @@ export default function CurrentData(props) {
     </span>
   );
 
-  return (
+  const weatherContent = (
     <div className="weather">
       <div className="TimeAndSearch">
         <div className="row">
@@ -155,6 +157,11 @@ export default function CurrentData(props) {
         </div>
         <hr />
       </div>
+      <Prognosis location={city} />
     </div>
   );
+
+  const loading = <div>Loading...</div>;
+
+  return <div>{temperature ? weatherContent : loading}</div>;
 }
