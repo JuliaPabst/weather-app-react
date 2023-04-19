@@ -101,6 +101,7 @@
 @media (max-width: 576px) {
   .main {
     max-height: 800px;
+    padding: 20px;
   }
 
   .main .enterACity {

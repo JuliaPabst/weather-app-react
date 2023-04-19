@@ -112,7 +112,7 @@ export default function CurrentData(props) {
 
   const temperatureInFahrenheit = (
     <span className="currentTemperature">
-      {temperature * 1.8 + 32.0}°
+      {Math.round(temperature * 1.8 + 32.0)}°
       <a href="/" onClick={convertToCelsius} className="metrics">
         C
       </a>{" "}
