@@ -46,7 +46,7 @@ export default function CurrentData(props) {
 
     let fullDate = new Date();
     let year = fullDate.getFullYear();
-    let month = fullDate.getMonth();
+    let month = fullDate.getMonth() + 1;
     let day = fullDate.getDate();
     let currentDate = `${month}/${day}/${year}`;
     let weekdayNumber = fullDate.getDay();
@@ -124,10 +124,10 @@ export default function CurrentData(props) {
     <div className="weather">
       <div className="TimeAndSearch">
         <div className="row">
-          <div className="col-5 currentDate">
+          <div className="col-12 col-sm-5 currentDate">
             {weekDay} {date} <span className="time">{time}</span>
           </div>
-          <div className="col-7">
+          <div className="col-12 col-sm-7">
             <form onSubmit={submitCity}>
               <input
                 className="enterACity"
@@ -141,14 +141,14 @@ export default function CurrentData(props) {
       </div>
       <div className="currentData">
         <div className="row">
-          <div className="col-7">
+          <div className="col-12 col-sm-7">
             <h1 className="currentCity">{city}</h1>
             <ul className="humidityAndWind">
               <li>Humidity: {humidity}%</li>
               <li>Wind: {wind} km/h</li>
             </ul>
           </div>
-          <div className="col-5">
+          <div className="col-12 col-sm-5">
             <div>
               <img src={icon} className="weatherIcon" alt="weatherIcon" />
             </div>

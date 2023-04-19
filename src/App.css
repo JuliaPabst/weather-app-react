@@ -57,8 +57,7 @@
 
 .main .currentCity {
   padding: 20px;
-  margin-bottom: 0;
-  font-size: 50px;
+  font-size: 45px;
   font-weight: 600;
   color: white;
   position: relative;
@@ -75,10 +74,7 @@
 }
 
 .main .weatherIcon {
-  text-align: center;
   width: 150px;
-  font-weight: 300;
-  color: white;
   position: relative;
   top: 40px;
 }
@@ -86,6 +82,7 @@
 .main .currentTemperature {
   position: relative;
   left: 20px;
+  top: 6px;
   text-align: center;
   font-size: 30px;
   font-weight: 600;
@@ -97,3 +94,64 @@
   font-weight: 300;
 }
 
+.miniWeatherIcon {
+  width: 26px;
+}
+
+@media (max-width: 576px) {
+  .main {
+    max-height: 800px;
+  }
+
+  .main .enterACity {
+    position: initial;
+    text-align: center;
+  }
+
+  .main .currentCity {
+    text-align: center;
+    font-size: 55px;
+    position: relative;
+    top: 65px;
+  }
+
+  .humidityAndWind {
+    position: relative;
+    left: -5px;
+    top: 7px;
+    text-align: center;
+    padding-left: 0;
+    padding-top: 0;
+    margin: auto;
+  }
+
+  .main .weatherIcon {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    top: -30px;
+    width: 200px;
+  }
+
+  .main .currentTemperature {
+    position: relative;
+    left: 0;
+    top: -65px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .weatherDays {
+    text-align: center;
+  }
+
+  .weekday {
+    padding: 5px;
+    font-size: 18px;
+  }
+
+  .miniWeatherIcon {
+    width: 32px;
+  }
+}

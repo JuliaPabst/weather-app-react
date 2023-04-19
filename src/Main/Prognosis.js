@@ -2,8 +2,6 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 
-let weatherPrognosis = null;
-
 export default function Prognosis(props) {
   const [weatherForecast, setWeatherForecast] = useState(null);
   const [weekday, setWeekday] = useState(null);
@@ -75,84 +73,78 @@ export default function Prognosis(props) {
       });
   }, [props.location]);
 
-  useEffect(() => {
-    if (weatherForecast !== null) {
-      weatherPrognosis = (
-        <div className="row weatherDays">
-          <div className="col-2">
-            {week[weekday + 1]}
-            <img
-              src={weatherForecast[0].icon}
-              alt="weatherimage"
-              className="miniWeatherIcon"
-              width="25
-              "
-            />
-            {2}° {weatherForecast[0].maxTemp}°
-          </div>
-          <div className="col-2">
-            {week[weekday + 2]}
-            <img
-              src={weatherForecast[1].icon}
-              alt="weatherimage"
-              className="miniWeatherIcon"
-              width="25
-              "
-            />
-            {weatherForecast[1].minTemp}° {weatherForecast[1].maxTemp}°
-          </div>
-          <div className="col-2">
-            {week[weekday + 3]}
-            <img
-              src={weatherForecast[2].icon}
-              alt="weatherimage"
-              className="miniWeatherIcon"
-              width="25
-              "
-            />
-            {weatherForecast[2].minTemp}° {weatherForecast[2].maxTemp}°
-          </div>
-          <div className="col-2">
-            {week[weekday + 4]}
-            <img
-              src={weatherForecast[3].icon}
-              alt="weatherimage"
-              className="miniWeatherIcon"
-              width="25
-              "
-            />
-            {weatherForecast[3].minTemp}° {weatherForecast[3].maxTemp}°
-          </div>
-          <div className="col-2">
-            {week[weekday + 5]}
-            <img
-              src={weatherForecast[4].icon}
-              alt="weatherimage"
-              className="miniWeatherIcon"
-              width="25
-              "
-            />
-            {weatherForecast[4].minTemp}° {weatherForecast[4].maxTemp}°
-          </div>
-          <div className="col-2">
-            {week[weekday + 6]}
-            <img
-              src={weatherForecast[5].icon}
-              alt="weatherimage"
-              className="miniWeatherIcon"
-              width="25
-              "
-            />
-            {weatherForecast[5].minTemp}° {weatherForecast[5].maxTemp}°
-          </div>
-        </div>
-      );
-    }
-  }, [weatherForecast]);
+  if (weatherForecast === null) {
+    return (
+      <div className="prognosis">
+        <p>Loading...</p>
+      </div>
+    );
+  }
 
   return (
     <div className="prognosis">
-      {weatherForecast != null ? weatherPrognosis : <p>Loading...</p>}
+      <div className="row weatherDays">
+        <div className="col-4 col-sm-2 weekday">
+          {week[weekday + 1]}
+          <img
+            src={weatherForecast[0].icon}
+            alt="weatherimage"
+            className="miniWeatherIcon"
+          />
+          <br />
+          {2}° {weatherForecast[0].maxTemp}°
+        </div>
+        <div className="col-4 col-sm-2 weekday">
+          {week[weekday + 2]}
+          <img
+            src={weatherForecast[1].icon}
+            alt="weatherimage"
+            className="miniWeatherIcon"
+          />
+          <br />
+          {weatherForecast[1].minTemp}° {weatherForecast[1].maxTemp}°
+        </div>
+        <div className="col-4 col-sm-2 weekday">
+          {week[weekday + 3]}
+          <img
+            src={weatherForecast[2].icon}
+            alt="weatherimage"
+            className="miniWeatherIcon"
+          />
+          <br />
+          {weatherForecast[2].minTemp}° {weatherForecast[2].maxTemp}°
+        </div>
+        <div className="col-4 col-sm-2 weekday">
+          {week[weekday + 4]}
+          <img
+            src={weatherForecast[3].icon}
+            alt="weatherimage"
+            className="miniWeatherIcon"
+          />
+          <br />
+          {weatherForecast[3].minTemp}° {weatherForecast[3].maxTemp}°
+        </div>
+        <div className="col-4 col-sm-2 weekday">
+          {week[weekday + 5]}
+          <img
+            src={weatherForecast[4].icon}
+            alt="weatherimage"
+            className="miniWeatherIcon"
+          />
+          <br />
+          {weatherForecast[4].minTemp}° {weatherForecast[4].maxTemp}°
+        </div>
+        <div className="col-4 col-sm-2 weekday">
+          {week[weekday + 6]}
+          <img
+            src={weatherForecast[5].icon}
+            alt="weatherimage"
+            className="miniWeatherIcon"
+          />{" "}
+          <br />
+          {weatherForecast[5].minTemp}° {weatherForecast[5].maxTemp}°
+        </div>
+      </div>
     </div>
   );
 }
